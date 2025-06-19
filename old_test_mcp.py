@@ -4,7 +4,7 @@ import unittest
 from server import mcp, setup_server
 from fastmcp import Client
 
-from servers.data_format import data_format_mcp
+# from servers.data_format import data_format_mcp
 
 
 class TestChepyMCP(unittest.IsolatedAsyncioTestCase):
