@@ -81,7 +81,6 @@ Example response:
     "signature": "(alphabet: str = 'standard', remove_non_alpha: bool = True)",
     "description": "Decode base64 encoded string"
   }
-  // ...
 }
 ```
 
@@ -102,5 +101,3 @@ Example response:
 MIT
 
 ---
-
-**Happy hacking with Chepy and MCP!**

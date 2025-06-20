@@ -2,6 +2,7 @@ import unittest
 from src.server import mcp, BakeOutputModel
 from fastmcp import Client
 import json
+import secrets
 
 
 class TestChepyMain(unittest.IsolatedAsyncioTestCase):
@@ -39,6 +40,20 @@ class TestChepyMain(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(bake_result["type"], "text")
             self.assertEqual(bake_result["data"], "2")
 
+    async def test_bake_aes_encrypt_decrypt(self):
+        key = secrets.token_bytes(16).hex()
+        iv = secrets.token_bytes(16).hex()
+        plaintext = "secret message"
+        recipe = [
+            {"function": "aes_encrypt", "args": {"key": key, "iv": iv}},
+            {"function": "aes_decrypt", "args": {"key": key, "iv": iv}}
+        ]
+        payload = {"input": plaintext, "recipe": recipe}
+        async with Client(mcp) as client:
+            result = await client.call_tool("bake", {"input_data": payload})
+            bake_result = json.loads(result[0].text)
+            self.assertEqual(bake_result["type"], "text")
+            self.assertEqual(bake_result["data"], plaintext)
 
 if __name__ == "__main__":
     unittest.main()
