@@ -66,11 +66,10 @@ def get_chepy_operations() -> dict:
         "get_state", "set_state", "save_recipe", "load_recipe", "run_recipe", "print", "debug", "reset",
         "register", "set_register", "get_register", "pastebin_to_raw", "github_to_raw", "load_command",
         "run_script", "for_each", "fork", "callback", "switch_state", "eval_state",
-        # state/buffer related
         "state", "buffer", "state_index", "state_count", "state_list", "state_dict", "state_keys",
         "state_values", "state_items", "state_clear", "state_pop", "state_update", "state_copy",
         "state_fromkeys", "state_get", "state_setdefault", "state_popitem", "state_viewitems",
-        "state_viewkeys", "state_viewvalues"
+        "state_viewkeys", "state_viewvalues", "write_binary", "write_to_file"
     }
     ops = {}
     for name in dir(Chepy):
@@ -96,12 +95,5 @@ def get_chepy_operations() -> dict:
     return ops
 
 
-def save_chepy_operations_to_json(filename: str = "chepy_operations.json"):
-    ops = get_chepy_operations()
-    with open(filename, "w", encoding="utf-8") as f:
-        json.dump(ops, f, indent=2, ensure_ascii=False)
-
-
 if __name__ == "__main__":
-    save_chepy_operations_to_json()
     mcp.run()
