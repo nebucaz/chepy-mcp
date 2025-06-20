@@ -4,38 +4,48 @@ MCP Service for Chepy Library Functions
 
 ## Overview
 
-This project exposes the powerful [Chepy](https://github.com/securisec/chepy) data transformation library as an [MCP (Model Context Protocol)](https://gofastmcp.com/getting-started/welcome) server. It allows you to access Chepy's tools (like encoding, decoding, and data manipulation) via a flexible API, including a `bake` pipeline tool inspired by [CyberChef](https://gchq.github.io/CyberChef/).
+This project exposes the powerful [Chepy](https://github.com/securisec/chepy) data transformation library as an [MCP (Model Context Protocol)](https://gofastmcp.com/getting-started/welcome) server. It allows you to access Chepy's tools (like encoding, decoding, and data manipulation) via a single flexible API: the `bake` pipeline tool, inspired by [CyberChef](https://gchq.github.io/CyberChef/).
 
 ## Features
 
-- **MCP server** exposing Chepy functions as tools
-- **Pipeline tool (`bake`)**: Chain multiple Chepy operations, each with parameters, in a single request
+- **Single pipeline tool (`bake`)**: Chain one or more Chepy operations, each with parameters, in a single request
 - **Resource endpoint**: Discover all available Chepy operations and their signatures
 - **Unittest-based test suite** for robust validation
 
 ## Installation
+1. **Install uv if it is not installed yet.**
+    ```bash
+    $ curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
 
-1. **Clone the repository:**
+2. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/chepy-mcp.git
+   git clone https://github.com/nebucaz/chepy-mcp.git
    cd chepy-mcp
    ```
 
-2. **Install dependencies:**
+3. **Install dependencies:**
    ```bash
-   pip install -r requirements.txt
-   ```
-   Or, if using `pyproject.toml`:
-   ```bash
-   pip install .
+   uv sync
    ```
 
-## Usage
+## Run
+
+Run the server with:
+```bash
+$ uv run src/server.py
+```
 
 ### Start the MCP Server
 
+You can run the server directly:
 ```bash
-python server/main.py
+uv python server/main.py
+```
+
+Or, using the [mcp CLI](https://gofastmcp.com/getting-started/welcome):
+```bash
+uv run mcp
 ```
 
 ### Example: Using the `bake` Tool
@@ -80,18 +90,19 @@ Example response:
 Run the test suite with:
 
 ```bash
-python -m unittest discover tests
+uv python -m unittest discover tests
 ```
 
 ## Extending
 
-- Add new Chepy tools or pipelines by editing `server/main.py`.
-- Add more tests in the `tests/` directory.
+- All Chepy operations are available through the pipeline tool; no need to add individual wrappers.
+- Add more tests in the `tests/` directory as needed.
 
 ## Notes
 
 - The `bake` tool will automatically detect if the output is text or binary and encode binary as base64.
 - For a list of valid operations and their parameters, see the `resource://chepy_operations` resource.
+- Only the `bake` tool and the Chepy operations resource are exposed for maximum flexibility and maintainability.
 
 ## License
 
