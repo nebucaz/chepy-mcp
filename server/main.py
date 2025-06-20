@@ -11,8 +11,9 @@
 import asyncio
 from fastmcp import FastMCP
 from servers.data_format_mcp import data_format_mcp
-from typing import Annotated
+from typing import Annotated, Any, Dict, List, Optional
 from pydantic import BaseModel, Field
+from chepy import Chepy
 
 
 class PipelineModel(BaseModel):
@@ -20,6 +21,22 @@ class PipelineModel(BaseModel):
     Input model for a chain of operations that are to be applied to the input
     Valid operations are: from_base64, to_base64
     """
+
+
+class OperationModel(BaseModel):
+    op: str = Field(
+        ..., description="Name of the Chepy operation (e.g., 'rot13', 'base64_encode')"
+    )
+    params: Optional[Dict[str, Any]] = Field(
+        default_factory=dict, description="Parameters for the operation"
+    )
+
+
+class BakePipelineModel(BaseModel):
+    input: str = Field(..., description="Input string to process")
+    pipeline: List[OperationModel] = Field(
+        ..., description="List of operations to apply in order"
+    )
 
 
 # Create a server instance with a descriptive name
@@ -53,6 +70,19 @@ def pipeline(input_data: PipelineModel) -> str:
     Takes an input and a list of operations that are applied to the input string
     in the sequence they qre defined.
     """
+
+
+@mcp.tool()
+def bake(input_data: BakePipelineModel) -> str:
+    """
+    Applies a pipeline of Chepy operations to the input string.
+    """
+    c = Chepy(input_data.input)
+    for step in input_data.pipeline:
+        func = getattr(c, step.op)
+        params = step.params or {}
+        c = func(**params)
+    return c.out
 
 
 # Import subserver
