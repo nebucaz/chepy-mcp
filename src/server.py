@@ -1,6 +1,6 @@
 import asyncio
 from fastmcp import FastMCP
-from typing import Any, Dict, List, Optional, Literal
+from typing import Any, Dict, List, Optional, Literal, cast, Mapping
 from pydantic import BaseModel, Field
 from chepy import Chepy
 import base64
@@ -8,27 +8,14 @@ import string
 import inspect
 
 
-class PipelineModel(BaseModel):
-    """
-    Input model for a chain of operations that are to be applied to the input
-    Valid operations are: from_base64, to_base64
-    """
+class ChepyOperation(BaseModel):
+    function: str = Field(..., description="Name of the Chepy function")
+    args: Dict[str, Any] = Field(default_factory=dict, description="Arguments for the function")
 
 
-class OperationModel(BaseModel):
-    op: str = Field(
-        ..., description="Name of the Chepy operation (e.g., 'rot13', 'base64_encode')"
-    )
-    params: Optional[Dict[str, Any]] = Field(
-        default_factory=dict, description="Parameters for the operation"
-    )
-
-
-class BakePipelineModel(BaseModel):
+class ChepyRecipeModel(BaseModel):
     input: str = Field(..., description="Input string to process")
-    pipeline: List[OperationModel] = Field(
-        ..., description="List of operations to apply in order"
-    )
+    recipe: List[ChepyOperation] = Field(..., description="List of Chepy operations in recipe format")
 
 
 class BakeOutputModel(BaseModel):
@@ -48,16 +35,15 @@ mcp = FastMCP(name="MCP Server for python chepy")
 
 
 @mcp.tool()
-def bake(input_data: BakePipelineModel) -> BakeOutputModel:
+def bake(input_data: ChepyRecipeModel) -> BakeOutputModel:
     """
     Applies a pipeline of Chepy operations to the input string.
     Returns a BakeOutputModel with type and data fields.
     """
-    c = Chepy(input_data.input)
-    for step in input_data.pipeline:
-        func = getattr(c, step.op)
-        params = step.params or {}
-        c = func(**params)
+    # Convert Pydantic models to dicts for Chepy compatibility
+    recipe_dicts = [op.model_dump() for op in input_data.recipe]
+    recipe_dicts = cast(List[Mapping[str, Any]], recipe_dicts)
+    c = Chepy(input_data.input).run_recipe(recipe_dicts)
     result = c.out
     if isinstance(result, bytes):
         if is_printable_text(result):
