@@ -3,8 +3,7 @@ import unittest
 # import asyncio
 from server.main import mcp, setup_server
 from fastmcp import Client
-
-# from servers.data_format import data_format_mcp
+from mcp.types import TextContent
 
 
 class TestChepyMain(unittest.IsolatedAsyncioTestCase):
@@ -30,6 +29,25 @@ class TestChepyMain(unittest.IsolatedAsyncioTestCase):
             self.assertIn("data_format_to_base64", tool_names)
             self.assertIn("data_format_from_base64", tool_names)
 
+
+"""
+    async def test_pipeline(self):
+        input_data = {
+            "input_data": {
+                "input": "ABC",
+                "operations": [
+                    {"operation": "to_base64", "args": ""},
+                    {"operation": "from_base64", "args": ""},
+                ],
+            }
+        }
+
+        async with Client(mcp) as client:
+            result: [TextContent] = await client.call_tool(
+                "pipeline", {"input_data": input_data}
+            )
+            print(result)
+"""
 
 if __name__ == "__main__":
     unittest.main()
