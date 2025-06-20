@@ -6,6 +6,7 @@ from chepy import Chepy
 import base64
 import string
 import inspect
+import json
 
 
 class ChepyOperation(BaseModel):
@@ -58,29 +59,49 @@ def bake(input_data: ChepyRecipeModel) -> BakeOutputModel:
 
 @mcp.resource("resource://chepy_operations")
 def get_chepy_operations() -> dict:
-    """Returns a dictionary of available Chepy operations and their parameters."""
-
-    hidden = [
-        "copy",
-        "web",
-        "read_file",
-        "load_file",
-        "http_request",
-        "load_dir",
-        "o",
-        "out",
-        "change_state",
-        "save_buffer",
-    ]
+    """Returns a dictionary of available Chepy operations, their parameters, and descriptions."""
+    hidden = {
+        "copy", "web", "read_file", "load_file", "http_request", "load_dir", "o", "out",
+        "change_state", "save_buffer", "copy_state", "create_state", "delete_buffer", "delete_state",
+        "get_state", "set_state", "save_recipe", "load_recipe", "run_recipe", "print", "debug", "reset",
+        "register", "set_register", "get_register", "pastebin_to_raw", "github_to_raw", "load_command",
+        "run_script", "for_each", "fork", "callback", "switch_state", "eval_state",
+        # state/buffer related
+        "state", "buffer", "state_index", "state_count", "state_list", "state_dict", "state_keys",
+        "state_values", "state_items", "state_clear", "state_pop", "state_update", "state_copy",
+        "state_fromkeys", "state_get", "state_setdefault", "state_popitem", "state_viewitems",
+        "state_viewkeys", "state_viewvalues"
+    }
     ops = {}
     for name in dir(Chepy):
         if not name.startswith("_") and name not in hidden:
             func = getattr(Chepy, name)
             if callable(func):
                 sig = str(inspect.signature(func))
-                ops[name] = sig  # remove self
+                # Remove 'self' from signature
+                if sig.startswith("(self, "):
+                    sig = "(" + sig[len("(self, "):]  # remove 'self, '
+                elif sig.startswith("(self)"):
+                    sig = "()"
+                # Remove return type annotation
+                if "->" in sig:
+                    sig = sig.split("->")[0].strip()
+                # Get docstring (first line only)
+                doc = inspect.getdoc(func)
+                if doc:
+                    doc = doc.split("\n")[0]
+                else:
+                    doc = ""
+                ops[name] = {"signature": sig, "description": doc}
     return ops
 
 
+def save_chepy_operations_to_json(filename: str = "chepy_operations.json"):
+    ops = get_chepy_operations()
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(ops, f, indent=2, ensure_ascii=False)
+
+
 if __name__ == "__main__":
+    save_chepy_operations_to_json()
     mcp.run()

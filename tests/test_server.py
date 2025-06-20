@@ -17,7 +17,6 @@ class TestChepyMain(unittest.IsolatedAsyncioTestCase):
             self.assertIn("from_base64", ops)
 
     async def test_bake_base64(self):
-        # Test the bake tool with a Chepy recipe format
         recipe = [
             {"function": "to_base64", "args": {}},
             {"function": "from_base64", "args": {}},
@@ -28,6 +27,17 @@ class TestChepyMain(unittest.IsolatedAsyncioTestCase):
             bake_result: BakeOutputModel = json.loads(result[0].text)
             self.assertEqual(bake_result["type"], "text")
             self.assertEqual(bake_result["data"], "hello world")
+
+    async def test_bake_add(self):
+        recipe = [
+            {"function": "add", "args": {"n": 1}},
+        ]
+        payload = {"input": "1", "recipe": recipe}
+        async with Client(mcp) as client:
+            result = await client.call_tool("bake", {"input_data": payload})
+            bake_result: BakeOutputModel = json.loads(result[0].text)
+            self.assertEqual(bake_result["type"], "text")
+            self.assertEqual(bake_result["data"], "2")
 
 
 if __name__ == "__main__":

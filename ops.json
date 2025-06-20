@@ -1,0 +1,1554 @@
+{
+  "add": {
+    "signature": "(n: int)",
+    "description": "Add a number to the state"
+  },
+  "addition": {
+    "signature": "(delimiter=None)",
+    "description": "Adds a list of numbers. If an item in the string is not a number it is excluded from the list."
+  },
+  "aes_decrypt": {
+    "signature": "(key: str, iv: str = '00000000000000000000000000000000', mode: str = 'CBC', key_format: str = 'hex', iv_format: str = 'hex')",
+    "description": "Decrypt raw state encrypted with AES."
+  },
+  "aes_encrypt": {
+    "signature": "(key: str, iv: str = '00000000000000000000000000000000', mode: str = 'CBC', key_format: str = 'hex', iv_format: str = 'hex')",
+    "description": "Encrypt raw state with AES."
+  },
+  "affine_decode": {
+    "signature": "(a: int = 1, b: int = 1)",
+    "description": "Decode Affine cipher"
+  },
+  "affine_encode": {
+    "signature": "(a: int = 1, b: int = 1)",
+    "description": "Encode with Affine cipher"
+  },
+  "atbash_decode": {
+    "signature": "()",
+    "description": "Decode Atbash cipher"
+  },
+  "atbash_encode": {
+    "signature": "()",
+    "description": "Encode with Atbash cipher"
+  },
+  "aws_account_id_from_access_key": {
+    "signature": "()",
+    "description": "Extract AWS account id from access key"
+  },
+  "bcrypt_compare": {
+    "signature": "(hash: str)",
+    "description": "Compare Bcrypt hash"
+  },
+  "bcrypt_hash": {
+    "signature": "(rounds: int = 10)",
+    "description": "Get Bcrypt hash"
+  },
+  "beautify_json": {
+    "signature": "(indent: int = 2)",
+    "description": "Beautify minified JSON"
+  },
+  "bifid_decode": {
+    "signature": "(key: Union[str, bytes] = '')",
+    "description": "Bifid / polybius decode"
+  },
+  "bifid_encode": {
+    "signature": "(key: Union[bytes, str] = '')",
+    "description": "Bifid / polybius decode"
+  },
+  "binary_to_hex": {
+    "signature": "()",
+    "description": "Converts binary data into a hex string"
+  },
+  "bit_shift_left": {
+    "signature": "(amount: int = 1)",
+    "description": "Shifts each byte in the input byte array to the left by a specified amount."
+  },
+  "bit_shift_right": {
+    "signature": "(amount: int = 1, operation_type: Literal['logical', 'arithmetic'] = 'logical')",
+    "description": "Shifts the bits in each byte towards the right by the specified amount."
+  },
+  "blake_2b": {
+    "signature": "(bits: int = 256, key: bytes = '')",
+    "description": "Get Balke-2b hash"
+  },
+  "blake_2s": {
+    "signature": "(bits: int = 256, key: bytes = '')",
+    "description": "Get Blake-2s hash"
+  },
+  "blowfish_decrypt": {
+    "signature": "(key: str, iv: str = '0000000000000000', mode: str = 'CBC', key_format: str = 'hex', iv_format: str = 'hex')",
+    "description": "Encrypt raw state with Blowfish"
+  },
+  "blowfish_encrypt": {
+    "signature": "(key: str, iv: str = '0000000000000000', mode: str = 'CBC', key_format: str = 'hex', iv_format: str = 'hex')",
+    "description": "Encrypt raw state with Blowfish"
+  },
+  "bruteforce_from_base_xx": {
+    "signature": "()",
+    "description": "Bruteforce various base encodings. Current supports base85, base16, base32, base64, base85, base58"
+  },
+  "bytearray_to_str": {
+    "signature": "(encoding: str = 'utf8', errors: str = 'replace')",
+    "description": "Convert a python bytearray to string"
+  },
+  "bytes_to_ascii": {
+    "signature": "()",
+    "description": "Convert bytes (array of bytes) to ascii"
+  },
+  "bytes_to_long": {
+    "signature": "()",
+    "description": "Bytes to long"
+  },
+  "bzip_compress": {
+    "signature": "()",
+    "description": "Compress the state into bz2 archive"
+  },
+  "bzip_decompress": {
+    "signature": "()",
+    "description": "Decompress a bz2 archive"
+  },
+  "cetacean_decode": {
+    "signature": "()",
+    "description": "Cetacean decode"
+  },
+  "cetacean_encode": {
+    "signature": "()",
+    "description": "Cetacean encode"
+  },
+  "chacha_decrypt": {
+    "signature": "(key: str, nonce: str = '0000000000000000', key_format: str = 'hex', nonce_format: str = 'hex')",
+    "description": "Decrypt raw state encrypted with ChaCha 20 rounds."
+  },
+  "chacha_encrypt": {
+    "signature": "(key: str, nonce: str = '0000000000000000', key_format: str = 'hex', nonce_format: str = 'hex')",
+    "description": "Encrypt raw state with ChaCha 20 rounds"
+  },
+  "color_hex_to_rgb": {
+    "signature": "()",
+    "description": "Convert hex color to rgb"
+  },
+  "concat": {
+    "signature": "(data: Union[str, bytes])",
+    "description": "Concat bytes to the current state"
+  },
+  "copy_to_clipboard": {
+    "signature": "()",
+    "description": "Copy to clipboard"
+  },
+  "count": {
+    "signature": "()",
+    "description": "Count anything"
+  },
+  "count_occurances": {
+    "signature": "(regex: str, case_sensitive: bool = False)",
+    "description": "Counts occurrences of the regex."
+  },
+  "crc16_checksum": {
+    "signature": "()",
+    "description": "Get CRC16 checksum"
+  },
+  "crc32_checksum": {
+    "signature": "()",
+    "description": "Get CRC32 checksum"
+  },
+  "crc8_checksum": {
+    "signature": "()",
+    "description": "Get CRC8 checksum"
+  },
+  "create_zip_file": {
+    "signature": "(file_name: str)",
+    "description": "Create a zip archive with data from state"
+  },
+  "css_selector": {
+    "signature": "(query: str)",
+    "description": "Extract data using valid CSS selectors"
+  },
+  "cut": {
+    "signature": "(start: int, end: int)",
+    "description": "Convert the state to bytes and cut x:y data from it"
+  },
+  "decode": {
+    "signature": "(encoding: str, errors: str = 'backslashreplace')",
+    "description": "Decode the string using the given encoding."
+  },
+  "decode_bruteforce": {
+    "signature": "()",
+    "description": "Bruteforce the various decoding for a string"
+  },
+  "decode_bytes": {
+    "signature": "(errors: str = 'ignore')",
+    "description": "Decode bytes to string"
+  },
+  "decode_zero_width": {
+    "signature": "(_zw_chars: str = '\\u200c\\u200d\\u202c\\ufeff')",
+    "description": "Extract zero with characters. Decode implementation of"
+  },
+  "decrement_bytes": {
+    "signature": "(n: int)",
+    "description": "Loop through each byte and decrement"
+  },
+  "defang_ip": {
+    "signature": "()",
+    "description": "Make an IP address harmless"
+  },
+  "defang_url": {
+    "signature": "()",
+    "description": "Make a URL harmless"
+  },
+  "der_hex_to_pem": {
+    "signature": "()",
+    "description": "Convert DER format to PEM cert."
+  },
+  "derive_pbkdf2_key": {
+    "signature": "(password: Union[str, bytes], salt: Union[str, bytes], key_size: int = 256, iterations: int = 1000, hash_type: Literal['md5', 'sha1', 'sha256', 'sha512'] = 'sha1', hex_salt: bool = True, show_full_key: bool = False)",
+    "description": "Derive a PBKDF2 key"
+  },
+  "des_decrypt": {
+    "signature": "(key: str, iv: str = '0000000000000000', mode: str = 'CBC', key_format: str = 'hex', iv_format: str = 'hex')",
+    "description": "Decrypt raw state encrypted with DES."
+  },
+  "des_encrypt": {
+    "signature": "(key: str, iv: str = '0000000000000000', mode: str = 'CBC', key_format: str = 'hex', iv_format: str = 'hex')",
+    "description": "Encrypt raw state with DES"
+  },
+  "dict_get_items": {
+    "signature": "(*keys: str)",
+    "description": "Get items from a dict. If no keys are specified, it will return all items."
+  },
+  "dict_to_json": {
+    "signature": "()",
+    "description": "Convert a dict object to a JSON string"
+  },
+  "diff": {
+    "signature": "(state: int = None, buffer: int = None, colors: bool = False, swap: bool = False, only_changes: bool = False)",
+    "description": "Diff state with another state or buffer"
+  },
+  "divide": {
+    "signature": "(n: int)",
+    "description": "Divide a number to the state. Chepy is not optimized for float math."
+  },
+  "drop_bytes": {
+    "signature": "(start: int, length: int)",
+    "description": "Drop bytes from starting index up to length"
+  },
+  "dump_json": {
+    "signature": "()",
+    "description": "Json serialize the state"
+  },
+  "dump_pkcs12_cert": {
+    "signature": "(password: Union[str, bytes])",
+    "description": "Get the private key and cert from pkcs12 cert"
+  },
+  "encode": {
+    "signature": "(encoding: str, errors: str = 'backslashreplace')",
+    "description": "Encode the string using the given encoding."
+  },
+  "encode_bruteforce": {
+    "signature": "()",
+    "description": "Bruteforce the various encoding for a string"
+  },
+  "encode_us_ascii_7_bit": {
+    "signature": "()",
+    "description": "Encode state using US ascii 7 bit"
+  },
+  "escape_string": {
+    "signature": "()",
+    "description": "Escape all special characters in a string"
+  },
+  "expand_alpha_range": {
+    "signature": "(join_by: Optional[str] = None)",
+    "description": "Get all alphanumberic or hex chars for the specified range"
+  },
+  "extract_auth_basic": {
+    "signature": "()",
+    "description": "Extract basic authentication tokens"
+  },
+  "extract_auth_bearer": {
+    "signature": "()",
+    "description": "Extract bearer authentication tokens"
+  },
+  "extract_aws_keyid": {
+    "signature": "()",
+    "description": "Extract AWS key ids"
+  },
+  "extract_aws_s3_url": {
+    "signature": "()",
+    "description": "Extract AWS S3 URLs"
+  },
+  "extract_base64": {
+    "signature": "(min: int = 20)",
+    "description": "Extract base64 encoded strings"
+  },
+  "extract_domains": {
+    "signature": "(is_binary: bool = False)",
+    "description": "Extract domains"
+  },
+  "extract_dsa_private": {
+    "signature": "()",
+    "description": "Extract DSA private key"
+  },
+  "extract_email": {
+    "signature": "(is_binary: bool = False)",
+    "description": "Extract email"
+  },
+  "extract_facebook_access_token": {
+    "signature": "()",
+    "description": "Extract Facebook access tokens"
+  },
+  "extract_github": {
+    "signature": "()",
+    "description": "Extract Github access token"
+  },
+  "extract_google_api": {
+    "signature": "()",
+    "description": "Extract Goolge api keys"
+  },
+  "extract_google_captcha": {
+    "signature": "()",
+    "description": "Extract Goolge captcha keys"
+  },
+  "extract_google_oauth": {
+    "signature": "()",
+    "description": "Extract Goolge oauth keys"
+  },
+  "extract_hashes": {
+    "signature": "()",
+    "description": "Extract md5, sha1, sha256 and sha512 hashes"
+  },
+  "extract_html_comments": {
+    "signature": "()",
+    "description": "Extract html comments"
+  },
+  "extract_html_tags": {
+    "signature": "(tags: List[str])",
+    "description": "Extract tags from html along with their attributes"
+  },
+  "extract_ips": {
+    "signature": "(is_binary: bool = False)",
+    "description": "Extract ipv4 and ipv6 addresses"
+  },
+  "extract_jwt_token": {
+    "signature": "()",
+    "description": "Extract JWT token"
+  },
+  "extract_mac_address": {
+    "signature": "(is_binary: bool = False)",
+    "description": "Extract MAC addresses"
+  },
+  "extract_mailgun_api": {
+    "signature": "()",
+    "description": "Extract Mailgun API key"
+  },
+  "extract_paypal_bt": {
+    "signature": "()",
+    "description": "Extract Paypal braintree access token"
+  },
+  "extract_rsa_private": {
+    "signature": "()",
+    "description": "Extract RSA private key"
+  },
+  "extract_square_access": {
+    "signature": "()",
+    "description": "Extract Square access token"
+  },
+  "extract_square_oauth": {
+    "signature": "()",
+    "description": "Extract Square oauth secret token"
+  },
+  "extract_strings": {
+    "signature": "(length: int = 4, join_by: Union[str, bytes] = '\\n')",
+    "description": "Extract strings from state"
+  },
+  "extract_stripe_api": {
+    "signature": "()",
+    "description": "Extract Stripe standard or restricted api token"
+  },
+  "extract_twilio_api": {
+    "signature": "()",
+    "description": "Extract Twilio API key"
+  },
+  "extract_twilio_sid": {
+    "signature": "()",
+    "description": "Extract Twilio account or app sid"
+  },
+  "extract_urls": {
+    "signature": "(is_binary: bool = False)",
+    "description": "Extract urls including http, file, ssh and ftp"
+  },
+  "extract_zero_width_chars_tags": {
+    "signature": "()",
+    "description": "Extract zero width characters between U+E0000 to U+E007F. Implements"
+  },
+  "fernet_decrypt": {
+    "signature": "(key: Union[bytes, str], encode_key: bool = False)",
+    "description": "Fernet decrypt"
+  },
+  "fernet_encrypt": {
+    "signature": "(key: Union[bytes, str], encode_key: bool = False)",
+    "description": "Fernet encrypt"
+  },
+  "filter_dict_key": {
+    "signature": "(by: str)",
+    "description": "Filter dictionary by key"
+  },
+  "filter_dict_value": {
+    "signature": "(by: str)",
+    "description": "Filter dictionary by value."
+  },
+  "filter_list": {
+    "signature": "(by: Union[str, dict], regex: bool = True)",
+    "description": "Filter a list by a string regex or dict key"
+  },
+  "filter_list_by_length": {
+    "signature": "(length: int, exact: bool = False)",
+    "description": "Filter a list by length by specifying minimum length."
+  },
+  "find_continuous_patterns": {
+    "signature": "(str2: Union[str, bytes], min_value: int = 10)",
+    "description": "Find continius patterns between the state as a string and the provided str2"
+  },
+  "find_emojis": {
+    "signature": "()",
+    "description": "Find emojis, symbols, pictographs, map symbols and flags"
+  },
+  "find_longest_continious_pattern": {
+    "signature": "(str2: str)",
+    "description": "Find longest continuous pattern"
+  },
+  "find_replace": {
+    "signature": "(pattern: Union[bytes, str], repl: Union[bytes, str], ignore_case=True)",
+    "description": "Replace matched pattern with repln"
+  },
+  "fix_zip_header": {
+    "signature": "(self: ~CompressionT)",
+    "description": "Fix the first 4 bytes of a zip file"
+  },
+  "flatten": {
+    "signature": "()",
+    "description": "Flatten a list of lists into a single list"
+  },
+  "from_bacon": {
+    "signature": "(A: Literal['A', '0'] = 'A', B: Literal['B', '1'] = 'B', complete: bool = True, split_by: Union[str, bytes] = b' ', invert: bool = False)",
+    "description": "From Bacon"
+  },
+  "from_base": {
+    "signature": "(radix: int = 36)",
+    "description": "Convert string to int base"
+  },
+  "from_base16": {
+    "signature": "()",
+    "description": "Decode state in base16"
+  },
+  "from_base32": {
+    "signature": "(remove_whitespace: bool = True)",
+    "description": "Decode as Base32"
+  },
+  "from_base36": {
+    "signature": "(delimiter: Union[str, bytes] = ' ', join_by: Union[str, bytes] = ' ')",
+    "description": "Decode Base36 data"
+  },
+  "from_base45": {
+    "signature": "()",
+    "description": "Decode from Base45"
+  },
+  "from_base58": {
+    "signature": "()",
+    "description": "Decode as Base58"
+  },
+  "from_base62": {
+    "signature": "(alphabet: str = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz')",
+    "description": "Decode from base62"
+  },
+  "from_base64": {
+    "signature": "(alphabet: str = 'standard', remove_non_alpha: bool = True)",
+    "description": "Decode as Base64"
+  },
+  "from_base85": {
+    "signature": "()",
+    "description": "Decode as Base85"
+  },
+  "from_base91": {
+    "signature": "()",
+    "description": "Decode as Base91"
+  },
+  "from_base92": {
+    "signature": "()",
+    "description": "Decode from Base92"
+  },
+  "from_binary": {
+    "signature": "(delimiter: str = None, byte_length: int = 8)",
+    "description": "Convert a list of binary numbers to string"
+  },
+  "from_braille": {
+    "signature": "()",
+    "description": "Convert text to six-dot braille symbols"
+  },
+  "from_bytes": {
+    "signature": "()",
+    "description": "Decodes bytes to string."
+  },
+  "from_charcode": {
+    "signature": "(delimiter: str = None, join_by: str = '', base: int = 10)",
+    "description": "Convert array of unicode chars to string"
+  },
+  "from_decimal": {
+    "signature": "(delimiter: str = None, join_by: str = '')",
+    "description": "Convert a list of decimal numbers to string"
+  },
+  "from_hex": {
+    "signature": "(delimiter: str = None, join_by: str = '', replace: Optional[bytes] = b'%|0x')",
+    "description": "Convert a non delimited hex string to string"
+  },
+  "from_hexdump": {
+    "signature": "()",
+    "description": "Convert hexdump back to str"
+  },
+  "from_html_entity": {
+    "signature": "()",
+    "description": "Decode html entities"
+  },
+  "from_letter_number_code": {
+    "signature": "(delimiter: Union[str, bytes] = ' ', join_by: Union[str, bytes] = '')",
+    "description": "Decode A1Z26"
+  },
+  "from_messagepack": {
+    "signature": "()",
+    "description": "From MessagePack"
+  },
+  "from_morse_code": {
+    "signature": "(dot: str = '.', dash: str = '-', letter_delim: str = ' ', word_delim: str = '\\n')",
+    "description": "Decode morse code"
+  },
+  "from_nato": {
+    "signature": "(delimiter: Optional[str] = None, join_by: str = '')",
+    "description": "Translate NATO phoentic to words"
+  },
+  "from_octal": {
+    "signature": "(delimiter: str = None, join_by: str = '')",
+    "description": "Convert a list of octal numbers to string"
+  },
+  "from_pickle": {
+    "signature": "(trust: bool = False)",
+    "description": "Deserialize pickle data"
+  },
+  "from_punycode": {
+    "signature": "()",
+    "description": "Decode to punycode"
+  },
+  "from_quoted_printable": {
+    "signature": "()",
+    "description": "From quoted printable"
+  },
+  "from_rison": {
+    "signature": "()",
+    "description": "Encode to RISON"
+  },
+  "from_twin_hex": {
+    "signature": "()",
+    "description": "Decode twin hex"
+  },
+  "from_unix_timestamp": {
+    "signature": "(format: str = '%c', utc: bool = False)",
+    "description": "Convert UNIX timestamp to datetime"
+  },
+  "from_upside_down": {
+    "signature": "(reverse: bool = False)",
+    "description": "From upside down"
+  },
+  "from_url_encoding": {
+    "signature": "()",
+    "description": "Converts URI/URL percent-encoded characters back to their raw values."
+  },
+  "from_utf21": {
+    "signature": "()",
+    "description": "Convert from UTF-21"
+  },
+  "from_uuencode": {
+    "signature": "(self: ~DataFormatT, header: str = '-')",
+    "description": "From UUEncode"
+  },
+  "from_wingdings": {
+    "signature": "()",
+    "description": "Decode from windings"
+  },
+  "generate_ecc_keypair": {
+    "signature": "(curve: Literal['p256', 'p384', 'p521'] = 'p256', format: Literal['PEM', 'DER'] = 'PEM')",
+    "description": "Generate RSA key pair"
+  },
+  "generate_rsa_keypair": {
+    "signature": "(bits: int = 1024, format: Literal['PEM', 'DER'] = 'PEM', passphrase: str = None)",
+    "description": "Generate RSA key pair"
+  },
+  "generate_uuid": {
+    "signature": "()",
+    "description": "Generate v4 UUID"
+  },
+  "get_by_index": {
+    "signature": "(*indexes: int)",
+    "description": "Get an item by specifying an index. If only one index is specified, the obj is return else a new list is returned"
+  },
+  "get_by_key": {
+    "signature": "(*keys: str, py_style: bool = False, split_key: str = '.')",
+    "description": "This method support json keys support."
+  },
+  "get_ssl_cert": {
+    "signature": "(port: int = 443)",
+    "description": "Get the server side SSL certificate for a domain"
+  },
+  "google_search_ei_to_epoch": {
+    "signature": "()",
+    "description": "Convert a google search ei query param to epoch"
+  },
+  "gpp_decrypt": {
+    "signature": "()",
+    "description": "Decrypt Group Policy Preferences (GPP) password"
+  },
+  "gzip_compress": {
+    "signature": "(file_name: str = None)",
+    "description": "Create a gz archive with data from state"
+  },
+  "gzip_decompress": {
+    "signature": "()",
+    "description": "Decompress a gzip archive"
+  },
+  "hex_to_bytes": {
+    "signature": "()",
+    "description": "Hex to bytes hex"
+  },
+  "hex_to_int": {
+    "signature": "()",
+    "description": "Converts hex into its integer representation"
+  },
+  "hex_to_str": {
+    "signature": "(ignore: bool = False)",
+    "description": "Decodes a hex string to ascii ignoring any decoding errors"
+  },
+  "hmac_hash": {
+    "signature": "(key: bytes = b'', digest: str = 'sha1')",
+    "description": "Get HMAC hash"
+  },
+  "huffman_decode": {
+    "signature": "(huffman_codes: Dict[str, str])",
+    "description": "Huffman decode"
+  },
+  "huffman_encode": {
+    "signature": "()",
+    "description": "Huffman encode"
+  },
+  "increment_bytes": {
+    "signature": "(n: int)",
+    "description": "Loop through each byte and increment"
+  },
+  "int_to_base": {
+    "signature": "(base: Union[int, str])",
+    "description": "Convert the state to a different base"
+  },
+  "int_to_hex": {
+    "signature": "()",
+    "description": "Converts an integer into its hex equivalent"
+  },
+  "int_to_ip": {
+    "signature": "()",
+    "description": "Convert an integer to an IP address"
+  },
+  "int_to_str": {
+    "signature": "()",
+    "description": "Converts an integer into a string"
+  },
+  "ip_to_int": {
+    "signature": "()",
+    "description": "Convert an integer to an IP address"
+  },
+  "javascript_comments": {
+    "signature": "()",
+    "description": "Extract javascript comments"
+  },
+  "join": {
+    "signature": "(join_by: Union[str, bytes] = '')",
+    "description": "Join a list with specified character"
+  },
+  "json_to_dict": {
+    "signature": "()",
+    "description": "Convert a JSON string to a dict object"
+  },
+  "json_to_yaml": {
+    "signature": "()",
+    "description": "Convert a json string to yaml structure"
+  },
+  "jwt_decode": {
+    "signature": "()",
+    "description": "Decode a JWT token. Does not verify"
+  },
+  "jwt_sign": {
+    "signature": "(secret: str, algorithms: str = 'HS256')",
+    "description": "Sign a json/dict object in JWT"
+  },
+  "jwt_token_generate_embedded_jwk": {
+    "signature": "(private_key_pem: str, private_key_passphrase: str = None, headers: dict = {}, alg: str = 'RS256')",
+    "description": "Generate a JWT token with an embedded JWK"
+  },
+  "jwt_token_generate_none_alg": {
+    "signature": "(headers: Dict[str, Any] = {})",
+    "description": "Generate a jwt token with none algorithm"
+  },
+  "jwt_verify": {
+    "signature": "(secret: str, algorithm: list = ['HS256'])",
+    "description": "Verify JWT token"
+  },
+  "keccak_224": {
+    "signature": "()",
+    "description": "Get KECCAK-224 hash"
+  },
+  "keccak_256": {
+    "signature": "()",
+    "description": "Get KECCAK-256 hash"
+  },
+  "keccak_384": {
+    "signature": "()",
+    "description": "Get KECCAK-384 hash"
+  },
+  "keccak_512": {
+    "signature": "()",
+    "description": "Get KECCAK-512 hash"
+  },
+  "length": {
+    "signature": "()",
+    "description": "Get the length of the current state as string"
+  },
+  "list_to_str": {
+    "signature": "(join_by: Union[str, bytes] = ' ')",
+    "description": "Join an array by `join_by`"
+  },
+  "load_buffer": {
+    "signature": "(index: int)",
+    "description": "Load the specified buffer into state"
+  },
+  "load_from_url": {
+    "signature": "(method: str = 'GET', params: dict = {}, json: dict = None, headers: dict = {}, cookies: dict = {})",
+    "description": "Load binary content from a url"
+  },
+  "long_to_bytes": {
+    "signature": "()",
+    "description": "Long numbers to bytes"
+  },
+  "loop": {
+    "signature": "(iterations: int, callback: str, args: dict = {})",
+    "description": "Loop and apply callback n times"
+  },
+  "loop_dict": {
+    "signature": "(keys: list, callback: str, args: dict = {})",
+    "description": "Loop over a dictionary and apply the callback to the value"
+  },
+  "loop_list": {
+    "signature": "(callback: str, args: dict = {})",
+    "description": "Loop over an array and run a Chepy method on it"
+  },
+  "ls47_decrypt": {
+    "signature": "(password: str, padding: int = 10)",
+    "description": "LS47 decrypt"
+  },
+  "ls47_encrypt": {
+    "signature": "(password: str, padding: int = 10, signature: str = '')",
+    "description": "LS47 encrypt"
+  },
+  "lz4_compress": {
+    "signature": "()",
+    "description": "LZ4 compress"
+  },
+  "lz4_decompress": {
+    "signature": "()",
+    "description": "LZ4 decompress"
+  },
+  "lz77_compress": {
+    "signature": "(window_size: int = 13, lookahead_buffer_size: int = 6)",
+    "description": "To LZ77 compression"
+  },
+  "lz77_decompress": {
+    "signature": "(window_size: int = 13, lookahead_buffer_size: int = 6)",
+    "description": "From LZ77 compression"
+  },
+  "lzma_compress": {
+    "signature": "()",
+    "description": "Compress using xz lzma"
+  },
+  "lzma_decompress": {
+    "signature": "()",
+    "description": "Decompress lzma compressed data"
+  },
+  "md2": {
+    "signature": "()",
+    "description": "Get MD2 hash"
+  },
+  "md4": {
+    "signature": "()",
+    "description": "Get MD4 hash"
+  },
+  "md5": {
+    "signature": "()",
+    "description": "Get MD5 hash"
+  },
+  "mean": {
+    "signature": "()",
+    "description": "Calculate the mean of the state"
+  },
+  "median": {
+    "signature": "()",
+    "description": "Calculate the median of the state"
+  },
+  "minify_json": {
+    "signature": "()",
+    "description": "Minify JSON string"
+  },
+  "monoalphabetic_substitution": {
+    "signature": "(mapping: Dict[str, str] = {})",
+    "description": "Monoalphabetic substitution. Re-map characters"
+  },
+  "multiply": {
+    "signature": "(n: int)",
+    "description": "Multiply a number to the state"
+  },
+  "normalize_hex": {
+    "signature": "(is_bytearray=False)",
+    "description": "Normalize a hex string"
+  },
+  "pad": {
+    "signature": "(width: int, direction: str = 'left', char: str = ' ')",
+    "description": "Pad string with a character"
+  },
+  "parse_csv": {
+    "signature": "()",
+    "description": "Parse a csv file. Returns a list of dict objects."
+  },
+  "parse_ip_range": {
+    "signature": "()",
+    "description": "Enumerate IP address in a CIDR range"
+  },
+  "parse_ipv6": {
+    "signature": "()",
+    "description": "Get longhand and shorthand of IPv6"
+  },
+  "parse_private_pem": {
+    "signature": "()",
+    "description": "Parse private key PEM"
+  },
+  "parse_public_pem": {
+    "signature": "()",
+    "description": "Parse pubkey PEM to get n and e"
+  },
+  "parse_sqlite": {
+    "signature": "(query: str)",
+    "description": "Parse sqlite db and run queries against it. Returns an array of dict objects with column as key and value"
+  },
+  "parse_uri": {
+    "signature": "()",
+    "description": "Parse a URI"
+  },
+  "parse_x509_der_hex": {
+    "signature": "()",
+    "description": "Parse X509 cert in DER format"
+  },
+  "parse_x509_pem": {
+    "signature": "()",
+    "description": "Parse X509 cert in PEM format"
+  },
+  "password_hashing": {
+    "signature": "(format: str, **kwargs: Any)",
+    "description": "Hash the state with various password hashing algorithms"
+  },
+  "pem_to_der_hex": {
+    "signature": "()",
+    "description": "Convert PEM cert to DER format"
+  },
+  "pgp_decrypt": {
+    "signature": "(passphrase: Union[str, bytes], armoured: bool = False)",
+    "description": "Decrypt PGP encrypted file with passphrase"
+  },
+  "pgp_encrypt": {
+    "signature": "(passphrase: Union[str, bytes], armoured=False)",
+    "description": "PGP encrypt"
+  },
+  "pick": {
+    "signature": "(*values: Any)",
+    "description": "Only pick specified values from the state. Works on strings, bytes, lists and dicts"
+  },
+  "plugins": {
+    "signature": "(enable: str)",
+    "description": "Use this method to enable or disable Chepy plugins."
+  },
+  "power": {
+    "signature": "(n: int)",
+    "description": "Convert state to the n power of"
+  },
+  "prefix": {
+    "signature": "(data: bytes)",
+    "description": "Add a prefix to the data in state. The state is converted to bytes"
+  },
+  "pretty": {
+    "signature": "(indent: int = 2)",
+    "description": "Prettify the state."
+  },
+  "public_from_x509": {
+    "signature": "()",
+    "description": "Get public key from x509 certificate"
+  },
+  "rabbit": {
+    "signature": "(key: str, iv: Optional[str] = None)",
+    "description": "Rabbit encryption/decryption"
+  },
+  "railfence_decode": {
+    "signature": "(key=2, offset=0)",
+    "description": "Decode railfence"
+  },
+  "railfence_encode": {
+    "signature": "(key=2, offset=0)",
+    "description": "Encode to railfence"
+  },
+  "random_case": {
+    "signature": "()",
+    "description": "Randomly change the case"
+  },
+  "raw_deflate": {
+    "signature": "()",
+    "description": "Raw deflate data"
+  },
+  "raw_inflate": {
+    "signature": "()",
+    "description": "Raw inflate data"
+  },
+  "rc4_decrypt": {
+    "signature": "(key: str, key_format: str = 'hex')",
+    "description": "Decrypt raw state with RC4"
+  },
+  "rc4_encrypt": {
+    "signature": "(key: str, key_format: str = 'hex')",
+    "description": "Encrypt raw state with RC4"
+  },
+  "refang_ip": {
+    "signature": "()",
+    "description": "Refangs an IP address"
+  },
+  "refang_url": {
+    "signature": "()",
+    "description": "Refangs a URL so that it is clickable"
+  },
+  "regex_search": {
+    "signature": "(pattern: str, is_bytes: bool = False, ignore_case: bool = False, multiline: bool = False, dotall: bool = False, unicode: bool = False, extended: bool = False)",
+    "description": "Regex search on current data. State will be an array of matches."
+  },
+  "regex_to_str": {
+    "signature": "(all_combo: bool = False)",
+    "description": "Convert a regex to a matching string"
+  },
+  "remove": {
+    "signature": "(pattern: Union[str, bytes] = b'')",
+    "description": "Remove is identifcal to find_replace, except it removes the identified"
+  },
+  "remove_diacritics": {
+    "signature": "()",
+    "description": "Replaces accented characters latin character equivalent."
+  },
+  "remove_nonprintable": {
+    "signature": "(replace_with: Union[str, bytes] = b'')",
+    "description": "Remove non-printable characters from string."
+  },
+  "remove_nullbytes": {
+    "signature": "()",
+    "description": "Remove null \\x00 byes from binary data"
+  },
+  "remove_whitespace": {
+    "signature": "(spaces: bool = True, carriage_return: bool = True, line_feeds: bool = True, tabs: bool = True, form_feeds: bool = True)",
+    "description": "Remove whitespace from a string"
+  },
+  "reverse": {
+    "signature": "(count: int = 1)",
+    "description": "Reverses a string"
+  },
+  "ripemd_160": {
+    "signature": "()",
+    "description": "Get RIPEMD-160 hash"
+  },
+  "rot_13": {
+    "signature": "(amount=13, rotate_lower=True, rotate_upper=True, rotate_numbers=False)",
+    "description": "Rot 13"
+  },
+  "rot_47": {
+    "signature": "(rotation: int = 47)",
+    "description": "ROT 47 encoding"
+  },
+  "rot_47_bruteforce": {
+    "signature": "()",
+    "description": "ROT 47 bruteforce"
+  },
+  "rot_8000": {
+    "signature": "()",
+    "description": "Rot8000"
+  },
+  "rotate": {
+    "signature": "(rotate_by: int)",
+    "description": "Rotate string by provided number"
+  },
+  "rotate_bruteforce": {
+    "signature": "()",
+    "description": "Brute force rotation from 1 to 26."
+  },
+  "rotate_left": {
+    "signature": "(radix: int = 1, carry: bool = False)",
+    "description": "Rotate left"
+  },
+  "rotate_right": {
+    "signature": "(radix: int = 1, carry: bool = False)",
+    "description": "Rotate right"
+  },
+  "rsa_decrypt": {
+    "signature": "(private_key: str, is_file: bool = True, passphrase: str = None, cipher: Literal['OAEP', 'PKCS'] = 'OAEP')",
+    "description": "Decrypt data with RSA Private key in PEM format"
+  },
+  "rsa_encrypt": {
+    "signature": "(public_key: str, is_file: bool = True, passphrase: str = None, cipher: Literal['OAEP', 'PKCS'] = 'OAEP')",
+    "description": "Encrypt data with RSA Public key in PEM format"
+  },
+  "rsa_private_pem_to_jwk": {
+    "signature": "()",
+    "description": "Convert RSA PEM private key to jwk format"
+  },
+  "rsa_public_key_from_jwk": {
+    "signature": "()",
+    "description": "Generate RSA public key in PEM format from JWK"
+  },
+  "rsa_sign": {
+    "signature": "(private_key: str, is_file: bool = True, passphrase: str = None, hash_format: Literal['SHA256', 'SHA512', 'SHA1', 'MD5', 'SHA384'] = 'SHA256')",
+    "description": "Sign data in state with RSA Private key in PEM format"
+  },
+  "rsa_verify": {
+    "signature": "(signature: bytes, public_key: str, is_file: bool = True, passphrase: str = None, hash_format: Literal['SHA256', 'SHA512', 'SHA1', 'MD5', 'SHA384'] = 'SHA256')",
+    "description": "Verify data in state with RSA Public key in PEM format"
+  },
+  "scrypt_hash": {
+    "signature": "(salt: str = '', key_length: int = 64, N: int = 14, r: int = 8, p: int = 1)",
+    "description": "Get Scrypt hash"
+  },
+  "search": {
+    "signature": "(pattern: Union[str, bytes])",
+    "description": "Search. Group matches are returned as tuples."
+  },
+  "search_aws_key": {
+    "signature": "()",
+    "description": "Search for AWS key id"
+  },
+  "search_ctf_flags": {
+    "signature": "(prefix: str, postfix: str = '.+?\\\\{*\\\\}')",
+    "description": "Search CTF style flags."
+  },
+  "search_dir": {
+    "signature": "(pattern: Union[bytes, str])",
+    "description": "Search all files in a directory. Pattern is case insensitive"
+  },
+  "search_list": {
+    "signature": "(pattern: Union[str, bytes])",
+    "description": "Search all items in a list. List items are coerced into bytes first."
+  },
+  "search_perl_unicode_props": {
+    "signature": "(lang: str)",
+    "description": "Search using perl unicode properties."
+  },
+  "search_private_key": {
+    "signature": "()",
+    "description": "Search varios private key headers"
+  },
+  "search_slack_tokens": {
+    "signature": "()",
+    "description": "Search slack tokens"
+  },
+  "search_slack_webhook": {
+    "signature": "()",
+    "description": "Search slack webhook"
+  },
+  "search_twilio_key": {
+    "signature": "()",
+    "description": "Search for Twilio api key"
+  },
+  "select": {
+    "signature": "(start: Union[int, str, bytes], end: int = None)",
+    "description": "Get an item by specifying an index"
+  },
+  "select_every_n": {
+    "signature": "(n: int, start: int = 0)",
+    "description": "Select every nth item from a list or string."
+  },
+  "set": {
+    "signature": "()",
+    "description": "Get an array of unique values"
+  },
+  "set_plugin_path": {
+    "signature": "(path: str)",
+    "description": "Use this method to set the path for Chepy plugins."
+  },
+  "sha1": {
+    "signature": "()",
+    "description": "Get SHA1 hash"
+  },
+  "sha2_224": {
+    "signature": "()",
+    "description": "Get SHA2-224 hash"
+  },
+  "sha2_256": {
+    "signature": "()",
+    "description": "Get SHA2-256 hash"
+  },
+  "sha2_384": {
+    "signature": "()",
+    "description": "Get SHA2-384 hash"
+  },
+  "sha2_512": {
+    "signature": "()",
+    "description": "Get SHA2-512 hash"
+  },
+  "sha2_512_truncate": {
+    "signature": "(truncate: int = 256)",
+    "description": "Get SHA2-512/bits hash"
+  },
+  "sha3_224": {
+    "signature": "()",
+    "description": "Get SHA2-224 hash"
+  },
+  "sha3_256": {
+    "signature": "()",
+    "description": "Get SHA3-256 hash"
+  },
+  "sha3_384": {
+    "signature": "()",
+    "description": "Get SHA3-384 hash"
+  },
+  "sha3_512": {
+    "signature": "()",
+    "description": "Get SHA3-512 hash"
+  },
+  "shake_128": {
+    "signature": "(size: int = 64)",
+    "description": "Get Shake-128 hash"
+  },
+  "shake_256": {
+    "signature": "(size: int = 64)",
+    "description": "Get Shake-256 hash"
+  },
+  "shuffle": {
+    "signature": "()",
+    "description": "Shuffle the state if it is a list, string or bytes. The state is"
+  },
+  "slice": {
+    "signature": "(start: int = 0, end: int = None)",
+    "description": "Returns the specified slice"
+  },
+  "sort_dict_key": {
+    "signature": "(reverse: bool = False)",
+    "description": "Sort a dictionary by key"
+  },
+  "sort_dict_value": {
+    "signature": "(reverse=False)",
+    "description": "Sort dictionary by value"
+  },
+  "sort_list": {
+    "signature": "(reverse: bool = False)",
+    "description": "Sort a list"
+  },
+  "split_and_count": {
+    "signature": "(pattern: Union[str, bytes], threshold=None)",
+    "description": "Splits a string by a regex pattern, counts occurrences of unique items,"
+  },
+  "split_by_char": {
+    "signature": "(delimiter: str = ' ')",
+    "description": "Split a string by a delimiter"
+  },
+  "split_by_n": {
+    "signature": "(n: int)",
+    "description": "Split a string by n characters."
+  },
+  "split_by_regex": {
+    "signature": "(pattern: str = '\\n', trim=True)",
+    "description": "Split a string by the given regex pattern"
+  },
+  "split_chunks": {
+    "signature": "(chunk_size)",
+    "description": "Split data in chunks"
+  },
+  "split_lines": {
+    "signature": "()",
+    "description": "Split a string by newline characters."
+  },
+  "str_from_hexdump": {
+    "signature": "()",
+    "description": "Extract a string from a hexdump"
+  },
+  "str_list_to_list": {
+    "signature": "()",
+    "description": "Convert a string list to a list"
+  },
+  "str_to_dict": {
+    "signature": "()",
+    "description": "Convert string to a dictionary"
+  },
+  "str_to_hex": {
+    "signature": "()",
+    "description": "Converts a string to a hex string"
+  },
+  "str_to_list": {
+    "signature": "()",
+    "description": "Convert string to list"
+  },
+  "str_to_unicode": {
+    "signature": "(prefix: str = '\\\\u', all_chars: bool = False)",
+    "description": "Convert unicode to str"
+  },
+  "stringify": {
+    "signature": "(compact: bool = True)",
+    "description": "Stringify the state. This uses json.dumps unlike to_string"
+  },
+  "strip": {
+    "signature": "(pattern: str, ignore_case=True)",
+    "description": "Strip matched pattern"
+  },
+  "strip_ansi": {
+    "signature": "()",
+    "description": "Strip ANSI escape codes from string"
+  },
+  "strip_non_printable": {
+    "signature": "()",
+    "description": "String non printable characters"
+  },
+  "sub": {
+    "signature": "(n: int)",
+    "description": "SUB the input with the given key"
+  },
+  "subsection": {
+    "signature": "(pattern: Union[str, bytes], methods: List[Tuple[Union[str, object], dict]], group: int = 0)",
+    "description": "Run specified methods over a subsection of the state. This method will always treat the state"
+  },
+  "substitute": {
+    "signature": "(x: str, y: str)",
+    "description": "Replace a subset of specified characters in the state."
+  },
+  "substring": {
+    "signature": "(pattern: str, group: int = 0)",
+    "description": "Choose a substring from current state as string"
+  },
+  "subtract": {
+    "signature": "(delimiter=None)",
+    "description": "Subtracts a list of numbers. If an item in the string is not a number it is excluded from the list."
+  },
+  "suffix": {
+    "signature": "(data: Union[str, bytes])",
+    "description": "Add a suffix to the data in state. The state is converted to bytes"
+  },
+  "sum": {
+    "signature": "()",
+    "description": "Calculate the sum of the state"
+  },
+  "swap_case": {
+    "signature": "()",
+    "description": "Swap case in a string"
+  },
+  "swap_endianness": {
+    "signature": "(word_length: int = 4)",
+    "description": "Swap endianness."
+  },
+  "swap_strings": {
+    "signature": "(by: int)",
+    "description": "Swap characters in string"
+  },
+  "tar_compress": {
+    "signature": "(filename: str, mode: str = 'gz')",
+    "description": "Compress the state into a tar compressed object."
+  },
+  "tar_extract_all": {
+    "signature": "(mode: str = '')",
+    "description": "Extract one file from inside a tar archive"
+  },
+  "tar_extract_one": {
+    "signature": "(filename: str, mode: str = '')",
+    "description": "Extract one file from inside a tar archive"
+  },
+  "tar_list_files": {
+    "signature": "(mode: str = '')",
+    "description": "Get file information inside a tar archive"
+  },
+  "to_bacon": {
+    "signature": "(A: Literal['A', '0'] = 'A', B: Literal['B', '1'] = 'B', complete: bool = True, join_by: Union[str, bytes] = b' ', invert: bool = False)",
+    "description": "Bacon encode"
+  },
+  "to_base": {
+    "signature": "(radix: int = 36)",
+    "description": "Convert int to base"
+  },
+  "to_base16": {
+    "signature": "()",
+    "description": "Encode state in base16"
+  },
+  "to_base32": {
+    "signature": "()",
+    "description": "Encode as Base32"
+  },
+  "to_base36": {
+    "signature": "(join_by: Union[str, bytes] = b' ')",
+    "description": "Encode to Base 36"
+  },
+  "to_base45": {
+    "signature": "()",
+    "description": "Encode to Base45"
+  },
+  "to_base58": {
+    "signature": "()",
+    "description": "Encode as Base58"
+  },
+  "to_base62": {
+    "signature": "(alphabet: str = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz')",
+    "description": "Encode to base62"
+  },
+  "to_base64": {
+    "signature": "(alphabet: str = 'standard')",
+    "description": "Encode as Base64"
+  },
+  "to_base85": {
+    "signature": "()",
+    "description": "Encode as Base58"
+  },
+  "to_base91": {
+    "signature": "()",
+    "description": "Base91 encode"
+  },
+  "to_base92": {
+    "signature": "()",
+    "description": "Encode to Base92"
+  },
+  "to_binary": {
+    "signature": "(join_by: Union[str, bytes] = ' ', byte_length: int = 8)",
+    "description": "Convert string characters to binary"
+  },
+  "to_braille": {
+    "signature": "()",
+    "description": "Convert text to six-dot braille symbols"
+  },
+  "to_bytes": {
+    "signature": "()",
+    "description": "Converts the data in state to bytes"
+  },
+  "to_camel_case": {
+    "signature": "(ignore_space: bool = False)",
+    "description": "Convert string to camel case"
+  },
+  "to_charcode": {
+    "signature": "(join_by: str = ' ', base: int = 16)",
+    "description": "Convert a string to a list of unicode charcode"
+  },
+  "to_decimal": {
+    "signature": "(join_by: str = ' ')",
+    "description": "Convert characters to decimal"
+  },
+  "to_hex": {
+    "signature": "(delimiter: str = '')",
+    "description": "Converts a string to its hex representation"
+  },
+  "to_hexdump": {
+    "signature": "()",
+    "description": "Convert the state to hexdump"
+  },
+  "to_html_entity": {
+    "signature": "(format='named', all_chars=False)",
+    "description": "Encode html entities"
+  },
+  "to_int": {
+    "signature": "(byteorder: Literal['little', 'big'] = 'big', base: int = 10)",
+    "description": "Converts the string representation of a number into an int"
+  },
+  "to_kebab_case": {
+    "signature": "()",
+    "description": "Convert string to kebab case"
+  },
+  "to_leetcode": {
+    "signature": "(replace_space: str = '')",
+    "description": "Convert to leetcode. Reference"
+  },
+  "to_leetspeak": {
+    "signature": "(special_chars: bool = True)",
+    "description": "Convert string to l33t speak"
+  },
+  "to_letter_number_code": {
+    "signature": "(join_by: Union[str, bytes] = b' ')",
+    "description": "Encode to A1Z26"
+  },
+  "to_lower_case": {
+    "signature": "()",
+    "description": "Convert string to lowercase"
+  },
+  "to_messagepack": {
+    "signature": "()",
+    "description": "To MessagePack"
+  },
+  "to_morse_code": {
+    "signature": "(dot: str = '.', dash: str = '-', letter_delim: str = ' ', word_delim: str = '\\n')",
+    "description": "Encode string to morse code"
+  },
+  "to_nato": {
+    "signature": "(join_by: str = ' ')",
+    "description": "Convert string to NATO phonetic format."
+  },
+  "to_octal": {
+    "signature": "(join_by: str = ' ')",
+    "description": "Convert string characters to octal"
+  },
+  "to_pickle": {
+    "signature": "()",
+    "description": "Pickle serialize state"
+  },
+  "to_punycode": {
+    "signature": "()",
+    "description": "Encode to punycode"
+  },
+  "to_quoted_printable": {
+    "signature": "()",
+    "description": "To quoted printable"
+  },
+  "to_rison": {
+    "signature": "()",
+    "description": "Decode from RISON"
+  },
+  "to_snake_case": {
+    "signature": "()",
+    "description": "Convert string to snake case"
+  },
+  "to_string": {
+    "signature": "()",
+    "description": "Convert to string"
+  },
+  "to_twin_hex": {
+    "signature": "()",
+    "description": "Encode to twin hex encoding"
+  },
+  "to_unix_timestamp": {
+    "signature": "()",
+    "description": "Convert datetime string to unix ts"
+  },
+  "to_upper_case": {
+    "signature": "(by: str = 'all')",
+    "description": "Convert string to uppercase"
+  },
+  "to_upside_down": {
+    "signature": "(reverse: bool = False)",
+    "description": "To upside down"
+  },
+  "to_url_encoding": {
+    "signature": "(safe: str = '', all_chars: bool = False)",
+    "description": "URL encode"
+  },
+  "to_utf21": {
+    "signature": "()",
+    "description": "Convert to UTF-21"
+  },
+  "to_uuencode": {
+    "signature": "(header: str = '-')",
+    "description": "To UUEncode"
+  },
+  "to_wingdings": {
+    "signature": "()",
+    "description": "Encode to windings"
+  },
+  "trim": {
+    "signature": "()",
+    "description": "Trim string. Removes whitespaces"
+  },
+  "triple_des_decrypt": {
+    "signature": "(key: str, iv: str = '0000000000000000', mode: str = 'CBC', key_format: str = 'hex', iv_format: str = 'hex')",
+    "description": "Decrypt raw state encrypted with DES."
+  },
+  "triple_des_encrypt": {
+    "signature": "(key: str, iv: str = '0000000000000000', mode: str = 'CBC', key_format: str = 'hex', iv_format: str = 'hex')",
+    "description": "Encrypt raw state with Triple DES"
+  },
+  "unescape_string": {
+    "signature": "()",
+    "description": "Unescape \\ from a string"
+  },
+  "unicode_escape": {
+    "signature": "(padding: int = 0, uppercase_hex: bool = False)",
+    "description": "Unicode escape"
+  },
+  "unicode_to_str": {
+    "signature": "(as_bytes=False)",
+    "description": "Escape any \\u characters to its proper unicode representation"
+  },
+  "unique": {
+    "signature": "()",
+    "description": "Get an array of unique list items"
+  },
+  "unzip_all": {
+    "signature": "(password: str = None)",
+    "description": "Unzip all files from zipfile into the state"
+  },
+  "unzip_one": {
+    "signature": "(file: str, password: str = None)",
+    "description": "Unzip one file from zipfile"
+  },
+  "vigenere_decode": {
+    "signature": "(key: str)",
+    "description": "Vigenere decode"
+  },
+  "vigenere_encode": {
+    "signature": "(key: str)",
+    "description": "Vigenere encode"
+  },
+  "walk_dir": {
+    "signature": "()",
+    "description": "Walk a directory and get all file paths"
+  },
+  "without": {
+    "signature": "(*values: Any)",
+    "description": "Remove specified values from the state. Works on strings, bytes, lists and dicts"
+  },
+  "write_binary": {
+    "signature": "(path: str)",
+    "description": "Save the state to disk. Return None."
+  },
+  "write_to_file": {
+    "signature": "(path: str)",
+    "description": "Save the state to disk. Return None."
+  },
+  "xor": {
+    "signature": "(key: str, key_type: Literal['hex', 'utf8', 'base64', 'decimal'] = 'hex')",
+    "description": "XOR state with a key"
+  },
+  "xor_bruteforce": {
+    "signature": "(length: int = 100, crib: Union[bytes, str, NoneType] = None)",
+    "description": "Brute force single byte xor"
+  },
+  "xpath_selector": {
+    "signature": "(query: str, index: int = None, namespaces: str = None)",
+    "description": "Extract data using valid xpath selectors"
+  },
+  "yaml_to_json": {
+    "signature": "()",
+    "description": "Convert yaml to a json string"
+  },
+  "zip_compress": {
+    "signature": "(file_name: str)",
+    "description": "Compress the state as a zipfile"
+  },
+  "zip_compress_symlink": {
+    "signature": "(self: ~CompressionT, file_name: str, target_file: str)",
+    "description": "Create a zipfile with a symlink pointer. For unix"
+  },
+  "zip_info": {
+    "signature": "()",
+    "description": "Gets various information about a zip file"
+  },
+  "zip_list_files": {
+    "signature": "()",
+    "description": "Get a list of files inside the zip archive"
+  },
+  "zlib_compress": {
+    "signature": "(level: int = 9)",
+    "description": "Compress using zlib"
+  },
+  "zlib_decompress": {
+    "signature": "()",
+    "description": "Zlib decompression"
+  }
+}

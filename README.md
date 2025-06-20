@@ -9,6 +9,7 @@ This project exposes the powerful [Chepy](https://github.com/securisec/chepy) da
 ## Features
 
 - **Single pipeline tool (`bake`)**: Chain one or more Chepy operations, each with parameters, in a single request
+- **Chepy recipe JSON format**: Pipelines are described using Chepy's own recipe serialization, making them compatible with Chepy's import/export and CLI tools
 - **Resource endpoint**: Discover all available Chepy operations and their signatures
 - **Unittest-based test suite** for robust validation
 
@@ -36,31 +37,24 @@ Run the server with:
 $ uv run src/server.py
 ```
 
-### Start the MCP Server
+## Usage
 
-You can run the server directly:
-```bash
-uv python server/main.py
-```
+### The Chepy Recipe JSON Format
 
-Or, using the [mcp CLI](https://gofastmcp.com/getting-started/welcome):
-```bash
-uv run mcp
-```
-
-### Example: Using the `bake` Tool
-
-Send a request to the `bake` tool with a pipeline of operations:
+The `bake` tool expects a pipeline in the [Chepy recipe JSON format](https://chepy.readthedocs.io/en/latest/recipes.html):
 
 ```json
 {
   "input": "hello world",
-  "pipeline": [
-    {"op": "to_base64"},
-    {"op": "from_base64"}
+  "recipe": [
+    {"function": "to_base64", "args": {}},
+    {"function": "from_base64", "args": {}}
   ]
 }
 ```
+
+- Each step in the `recipe` list is an object with a `function` (the Chepy operation name) and `args` (a dictionary of arguments for that function).
+- This format is fully compatible with Chepy's own recipe import/export and CLI tools.
 
 The response will indicate if the output is text or binary:
 ```json
@@ -72,25 +66,23 @@ The response will indicate if the output is text or binary:
 
 ### Discover Available Operations
 
-Fetch the resource endpoint to get all available Chepy operations and their parameter signatures:
+Fetch the resource endpoint to get all available Chepy operations, their parameter signatures, and descriptions:
 
 - **Resource URI:** `resource://chepy_operations`
 
 Example response:
 ```json
 {
-  "to_base64": "(self, alphabet: str = 'standard') -> ~DataFormatT",
-  "from_base64": "(self, alphabet: str = 'standard', remove_non_alpha: bool = True) -> ~DataFormatT",
-  ...
+  "to_base64": {
+    "signature": "(alphabet: str = 'standard')",
+    "description": "Encode the input string to base64"
+  },
+  "from_base64": {
+    "signature": "(alphabet: str = 'standard', remove_non_alpha: bool = True)",
+    "description": "Decode base64 encoded string"
+  }
+  // ...
 }
-```
-
-## Testing
-
-Run the test suite with:
-
-```bash
-uv python -m unittest discover tests
 ```
 
 ## Extending
@@ -103,6 +95,7 @@ uv python -m unittest discover tests
 - The `bake` tool will automatically detect if the output is text or binary and encode binary as base64.
 - For a list of valid operations and their parameters, see the `resource://chepy_operations` resource.
 - Only the `bake` tool and the Chepy operations resource are exposed for maximum flexibility and maintainability.
+- The pipeline format is fully compatible with Chepy's own recipe serialization and CLI tools.
 
 ## License
 
