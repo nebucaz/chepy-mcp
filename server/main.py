@@ -11,9 +11,12 @@
 import asyncio
 from fastmcp import FastMCP
 from servers.data_format_mcp import data_format_mcp
-from typing import Annotated, Any, Dict, List, Optional
+from typing import Annotated, Any, Dict, List, Optional, Literal
 from pydantic import BaseModel, Field
 from chepy import Chepy
+import base64
+import string
+import inspect
 
 
 class PipelineModel(BaseModel):
@@ -37,6 +40,11 @@ class BakePipelineModel(BaseModel):
     pipeline: List[OperationModel] = Field(
         ..., description="List of operations to apply in order"
     )
+
+
+class BakeOutputModel(BaseModel):
+    type: Literal["text", "binary"]
+    data: str  # plain text or base64-encoded binary
 
 
 # Create a server instance with a descriptive name
@@ -72,17 +80,49 @@ def pipeline(input_data: PipelineModel) -> str:
     """
 
 
+def is_printable_text(b: bytes) -> bool:
+    try:
+        s = b.decode("utf-8")
+        return all(c in string.printable or c.isspace() for c in s)
+    except UnicodeDecodeError:
+        return False
+
+
 @mcp.tool()
-def bake(input_data: BakePipelineModel) -> str:
+def bake(input_data: BakePipelineModel) -> BakeOutputModel:
     """
     Applies a pipeline of Chepy operations to the input string.
+    Valid operations include: to_base64, from_base64, rot13, reverse, ...
+    For each operation, you may specify parameters as needed.
     """
     c = Chepy(input_data.input)
     for step in input_data.pipeline:
         func = getattr(c, step.op)
         params = step.params or {}
         c = func(**params)
-    return c.out
+    result = c.out
+    if isinstance(result, bytes):
+        if is_printable_text(result):
+            return BakeOutputModel(type="text", data=result.decode("utf-8"))
+        else:
+            return BakeOutputModel(
+                type="binary", data=base64.b64encode(result).decode("utf-8")
+            )
+    else:
+        return BakeOutputModel(type="text", data=str(result))
+
+
+@mcp.resource("resource://chepy_operations")
+def get_chepy_operations() -> dict:
+    """Returns a dictionary of available Chepy operations and their parameters that may be used in the bake tool"""
+    ops = {}
+    for name in dir(Chepy):
+        if not name.startswith("_"):
+            func = getattr(Chepy, name)
+            if callable(func):
+                sig = str(inspect.signature(func))
+                ops[name] = sig
+    return ops
 
 
 # Import subserver
@@ -93,7 +133,7 @@ async def setup_server():
 
 
 if __name__ == "__main__":
-    asyncio.run(setup_server())
+    # asyncio.run(setup_server())
     mcp.run()
 
 
